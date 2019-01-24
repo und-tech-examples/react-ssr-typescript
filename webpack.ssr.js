@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
-module.exports = (env={}) => {
+module.exports = (env = {}) => {
     const envKeys = Object.keys(env).reduce((prev, next) => {
         prev[`process.env.${next}`] = JSON.stringify(env[next]);
         return prev;
@@ -15,6 +16,8 @@ module.exports = (env={}) => {
             libraryTarget: "umd",
             globalObject: "this",
         },
+        target: 'node',
+        externals: nodeExternals(),
         resolve: {
             extensions: ['.ts', '.tsx', '.js']
         },

@@ -3,15 +3,16 @@ const fs = require('fs');
 const path = require('path');
 const { renderToString } = require('react-dom/server');
 const fileBuild = './dist/server.js';
-const fileBuildExist= path.resolve(__dirname, fileBuild);
+const fileBuildExist = path.resolve(__dirname, fileBuild);
 
-if(!fs.existsSync(fileBuildExist)) {
+if (!fs.existsSync(fileBuildExist)) {
   console.log('please run `npm run build:ssr');
   process.exit();
 }
 
 const app = express();
-app.use(express.static('client/dist'));
+app.use(express.static(path.resolve(__dirname, '../client/dist')));
+
 app.get('/', (req, res) => {
   const { ssrApp, sheet, store } = require(fileBuild);
   const renderApp = renderToString(ssrApp);
@@ -38,9 +39,9 @@ function renderMarkup(html, styleTags, preloadedState) {
         // WARNING: See the following for security issues around embedding JSON in HTML:
         // http://redux.js.org/recipes/ServerRendering.html#security-considerations
         window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
-          /</g,
-          '\\u003c'
-        )}
+    /</g,
+    '\\u003c'
+  )}
       </script>
       <script src='bundle.js'></script>
     </body>
