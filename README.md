@@ -1,4 +1,4 @@
-# React SSR
+# React SSR With Typescript
 React + Redux + Typescript + Webpack 4 + Styled-components + Server side render
 
 ## Install dependencies
