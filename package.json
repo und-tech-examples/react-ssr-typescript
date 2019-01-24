@@ -1,0 +1,31 @@
+{
+  "name": "urb-react",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "webpack-dev-server --env.CLIENT_ENV=true --mode development --open",
+    "build": "webpack --mode production --env.CLIENT_ENV=true",
+    "build:ssr": "webpack --mode production --env.SERVER_ENV=true --config ./webpack.ssr.js",
+    "postbuild:ssr": "webpack --mode production",
+    "start:ssr": "node ./server",
+    "prestart:ssr": "rm -f ./client/dist/index.html"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.20",
+    "@types/react-dom": "^16.0.11",
+    "awesome-typescript-loader": "^5.2.1",
+    "html-webpack-plugin": "^3.2.0",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "styled-components": "^4.1.3"
+  }
+}

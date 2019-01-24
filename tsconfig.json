@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "sourceMap": true,
+      "allowJs": true,
+      "moduleResolution": "node",
+      "target": "es5",
+      "module": "esnext",
+      "jsx": "react",
+      "baseUrl": ".",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "experimentalDecorators": true,
+      "lib": [
+          "dom",
+          "es5", 
+          "es6"
+      ]
+    },
+      "exclude": [
+        "node_modules",
+    ],
+    "awesomeTypescriptLoaderOptions": {
+      "transpileOnly": true
+    }
+  }
